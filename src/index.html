@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace a FontAwesome para los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="navbar"></div>
+
+<section>
+    <h1>Hello, my name is Liz 👋 </h1>
+    <p>"One of the things I love most about the world of development is the collaboration between diverse minds, where each perspective brings something unique to create extraordinary ideas. This reinforces my belief that if we want to go far in each community, we must do it together." 🌍</p>
+</section>
+
+<!-- Script para cargar el navbar -->
+<script type="module">
+    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+
+    // Cargar el contenido del navbar desde el archivo navbar.html
+    fetch('navbar.html') // Cambia la ruta según la ubicación de tu archivo
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+
+            // Inicializar la lógica del modo oscuro después de cargar el navbar
+            initializeDarkMode();
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+</script>
+
+
+<!-- Script para el modo oscuro/sol -->
+<script src="scripts/theme-toggle.js"></script>
+
+</body>
+</html>

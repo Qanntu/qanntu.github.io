@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <!-- Enlace a FontAwesome para los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="navbar"></div>
+
+<section class="resume">
+    <div class="resume-header">
+        <h1>Resume 📄</h1>
+        <p>Computer Programmer and Analyst</p>
+    </div>
+
+    <h2>Education 🎓</h2>
+    <div class="resume-item">
+        <h3>George Brown College</h3>
+        <h4>Advanced Diploma Degree in Computer Programming and Analysis | Graduating April 2025</h4>
+        <p><em>Relevant Coursework:</em> Database Management, Full-Stack Development,
+            Object-Oriented Programming, Data Structures and Algorithms,
+            Agile Software Development, Applied Data Science, Application Development, DevOps.
+        </p>
+
+        <br>
+
+        <h3>Argentine Chamber of Commerce and Services</h3>
+        <h4>Higher Technician in Systems Administration | Graduated December 2019</h4>
+        <p><em>Relevant Coursework:</em> Server Administration, Network and systems security,
+            Database maintenance and optimization, Firewall management and intrusion detection systems,
+            Malware protection and security auditing, Internet of Things (IoT), Diagnosis and resolution of hardware and software issues.
+        </p>
+    </div>
+
+    <br>
+    <br>
+
+    <h2>Experience 💼</h2>
+    <div class="resume-item">
+        <h3>Mysterious Package Company</h3>
+        <h4>Junior Application Support |  (Ago 2023 - April 2024)</h4>
+        <p>Assisted in the maintenance and support of a stock management system, ensuring accurate and up-to-date inventory data.</p>
+        <p>Monitored system performance and reported issues to senior developers for resolution.</p>
+        <p>Performed basic troubleshooting and debugging to address minor technical issues and user inquiries</p>
+        <p>Updated system documentation to reflect changes.</p>
+        <p>Collaborated with the team to test and deploy updates.</p>
+    </div>
+
+    <br>
+    <br>
+
+    <h2>Skills and Tools 💻</h2>
+    <div class="skills-icons">
+        <!-- HTML -->
+        <div class="skill-item">
+            <i class="fab fa-html5 html5"></i>
+            <p>HTML5</p>
+        </div>
+
+        <!-- CSS -->
+        <div class="skill-item">
+            <i class="fab fa-css3-alt css3"></i>
+            <p>CSS3</p>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-item">
+            <i class="fab fa-js-square javascript"></i>
+            <p>JavaScript</p>
+        </div>
+
+        <!-- React -->
+        <div class="skill-item">
+            <i class="fab fa-react react"></i>
+            <p>React.js</p>
+        </div>
+
+        <!-- Node.js -->
+        <div class="skill-item">
+            <i class="fab fa-node-js nodejs"></i>
+            <p>Node.js</p>
+        </div>
+
+        <!-- Docker -->
+        <div class="skill-item">
+            <i class="fab fa-docker docker"></i>
+            <p>Docker</p>
+        </div>
+
+        <!-- Git -->
+        <div class="skill-item">
+            <i class="fab fa-git-alt git"></i>
+            <p>Git</p>
+        </div>
+
+        <!-- PHP -->
+        <div class="skill-item">
+            <i class="fab fa-php php"></i>
+            <p>PHP</p>
+        </div>
+
+        <!-- Python -->
+        <div class="skill-item">
+            <i class="fab fa-python python"></i>
+            <p>Python</p>
+        </div>
+
+        <!-- C# -->
+        <div class="skill-item">
+            <i class="fas fa-code csharp"></i>
+            <p>C#</p>
+        </div>
+
+        <!-- Visual Studio Code -->
+        <div class="skill-item">
+            <i class="fas fa-code-branch vscode"></i>
+            <p>VS Code</p>
+        </div>
+
+        <!-- Linux -->
+        <div class="skill-item">
+            <i class="fab fa-linux linux"></i>
+            <p>Linux</p>
+        </div>
+
+        <!-- SQL -->
+        <div class="skill-item">
+            <i class="fas fa-database sql"></i>
+            <p>SQL</p>
+        </div>
+
+        <!-- MongoDB -->
+        <div class="skill-item">
+            <i class="fas fa-leaf mongodb"></i>
+            <p>MongoDB</p>
+        </div>
+
+        <!-- PostgreSQL -->
+        <div class="skill-item">
+            <i class="fas fa-database postgresql"></i>
+            <p>PostgreSQL</p>
+        </div>
+
+        <!-- Postman -->
+        <div class="skill-item">
+            <i class="fas fa-envelope postman"></i>
+            <p>Postman</p>
+        </div>
+    </div>
+</section>
+
+<!-- Script para cargar el navbar -->
+<script type="module">
+    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+
+    // Cargar el contenido del navbar desde el archivo navbar.html
+    fetch('navbar.html') // Cambia la ruta según la ubicación de tu archivo
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+
+            // Inicializar la lógica del modo oscuro después de cargar el navbar
+            initializeDarkMode();
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+</script>
+
+<!-- Script para el modo oscuro/sol -->
+<script src="scripts/theme-toggle.js"></script>
+
+</body>
+</html>

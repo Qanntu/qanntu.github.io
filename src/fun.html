@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Stuff</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Enlace a FontAwesome para los íconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<div id="navbar"></div>
+
+<section class="fun">
+    <h1>Fun Stuff 🎉</h1>
+
+    <div class="fun-cards">
+        <!-- Card 1 -->
+        <div class="fun-card">
+            <span>📚</span>
+            <h2>Reading Novels</h2>
+            <p>I love immersing myself in exciting stories and exploring new worlds through books.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="fun-card">
+            <span>✏️</span>
+            <h2>Drawing & Animation</h2>
+            <p>Expressing creativity through art and animations is one of my favorite hobbies.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="fun-card">
+            <span>🚴‍🌄️</span>
+            <h2>Cycling & Hiking</h2>
+            <p>Exploring nature and staying active through cycling and hiking adventures.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="fun-card">
+            <span>🔬</span>
+            <h2>New Technologies</h2>
+            <p>Researching emerging technologies to stay ahead in the tech world is always exciting.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="fun-card">
+            <span>🍫</span>
+            <h2>Chocolate Truffles</h2>
+            <p>I love making delicious chocolate truffles for family and friends!</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="fun-card">
+            <span>🥖</span>
+            <h2>Baking Bread</h2>
+            <p>Nothing beats the smell of fresh homemade bread straight out of the oven.</p>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="fun-card">
+            <span>🧌🖌️</span>
+            <h2>Painting Miniatures</h2>
+            <p>I used to paint Warhammer miniatures with intricate designs for tabletop games.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Script para cargar el navbar -->
+<script type="module">
+    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+
+    // Cargar el contenido del navbar desde el archivo navbar.html
+    fetch('navbar.html') // Cambia la ruta según la ubicación de tu archivo
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+
+            // Inicializar la lógica del modo oscuro después de cargar el navbar
+            initializeDarkMode();
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+</script>
+
+<!-- Script para el modo oscuro/sol -->
+<script src="scripts/theme-toggle.js"></script>
+
+
+</body>
+</html>
+
+

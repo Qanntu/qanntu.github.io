@@ -1,0 +1,543 @@
+/*Modo claro (por defecto)*/
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Modo oscuro */
+body.dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+nav {
+    display: flex;
+    align-items: center; /* Centra los elementos verticalmente */
+    justify-content: space-between; /* Espacio entre botón y enlaces */
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Botón del tema */
+.theme-button {
+    margin-right: auto; /* Alinea el botón a la izquierda */
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+body.dark-theme .theme-toggle {
+    color: #ffffff;
+}
+
+/* Enlaces del navbar */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0073e6;
+}
+
+
+/* Cambios de color en modo oscuro */
+body.dark-theme nav {
+    background-color: #121212;
+}
+
+body.dark-theme .theme-toggle {
+    color: #ffffff;
+}
+
+body.dark-theme nav ul li a {
+    color: #ffffff;
+}
+
+/* Efecto hover */
+body.dark-theme nav ul li a:hover {
+    color: #80d8ff; /* Un azul más claro para el modo oscuro */
+}
+
+
+
+section {
+    text-align: center;
+    margin: 50px;
+
+}
+
+section h1 {
+    font-size: 2rem;
+    color: lightslategrey;
+    text-align: center;
+
+}
+
+section p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.icons img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.profile-picture {
+    width: 150px; /* Tamaño estándar para una foto de perfil */
+    height: 150px; /* Mantén la relación 1:1 */
+    object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    border: 2px solid #ccc; /* Opcional: Añade un borde alrededor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Añade un sombreado */
+    display: block; /* Asegura el centrado en contenedores flex */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+/* Estilos para el contenedor del blog */
+.about {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align:left;
+
+}
+
+/* Estilo para cada publicación */
+.blog-post {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    text-align:left;
+    padding-left: 20px;
+}
+
+/* Fecha de la publicación */
+.post-date {
+    color: lightslategrey;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align:left;
+    margin-left: 0;
+}
+
+/* Títulos de las publicaciones */
+.blog-post h2 {
+    font-size: 1.8em;
+    margin-top: 10px;
+    margin-left: 0;
+    color: #333;
+    text-align:left;
+}
+
+/* Imagen de perfil */
+.profile-picture2 {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px 0;
+    display: block;
+}
+
+/* Texto del contenido */
+.blog-post p {
+    line-height: 1.6;
+    color: #555;
+    margin-left: 0;
+}
+
+/* Contenedor principal */
+.fun {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Título de la sección */
+.fun h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: lightslategrey;
+}
+
+/* Contenedor de las tarjetas */
+.fun-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo para cada tarjeta */
+.fun-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover para la tarjeta */
+.fun-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Íconos grandes */
+.fun-card span {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Títulos de las tarjetas */
+.fun-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Texto de las tarjetas */
+.fun-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Contenedor principal de la sección Projects */
+.projects {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Título de la sección Projects */
+.projects h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: lightslategrey;
+}
+
+/* Contenedor de las tarjetas de proyectos */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Estilo para cada tarjeta de proyecto */
+.project-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover en las tarjetas */
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen de cada tarjeta */
+.project-card img {
+    width: 100%;
+    height: auto;
+    max-width: 10rem; /* Limita el ancho máximo a 4rem */
+    max-height: 10rem; /* Limita la altura máxima a 4rem */
+    object-fit: cover; /* Ajusta la imagen sin distorsionar */
+    border-radius: 5px; /* Opcional: bordes ligeramente redondeados */
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centra la imagen dentro de la tarjeta */
+}
+
+/* Título de cada proyecto */
+.project-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: lightslategrey;
+}
+
+/* Descripción del proyecto */
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/*RESUME*/
+/* Resume Header */
+.resume-header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f3f3f3;
+    border-bottom: 2px solid #ddd;
+}
+
+.resume-header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.resume-header h1 {
+    font-size: 2rem;
+    margin: 10px 0;
+    color: lightslategray;
+}
+
+.resume-header p {
+    font-size: 1.2rem;
+}
+
+/* Section Titles */
+.resume h2 {
+    font-size: 1.8rem;
+    color: slategrey;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    text-align: left;
+
+}
+
+
+/* Resume Items */
+.resume-item {
+    margin: 20px 0;
+
+}
+
+.resume-item h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 5px;
+    text-align: justify;
+
+}
+
+.resume-item h4 {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+    text-align: justify;
+
+}
+.resume-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 5px 0;
+    line-height: 1.6;
+    text-align: justify;
+    position: relative;
+    padding-left: 20px; /* Espacio para el círculo */
+
+}
+
+.resume-item p::before {
+    content: "●"; /* El círculo */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: gold; /* Cambia el color si es necesario */
+    font-size: 1.2em; /* Tamaño del círculo */
+    line-height: 1; /* Ajusta la posición vertical */
+}
+
+/* Skills List */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.skills-list li {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.skills-list li strong {
+    color: #333;
+}
+
+/* Contenedor de íconos de habilidades */
+.skills-icons {
+    display: flex; /* Usa flexbox para alinear los íconos en una fila */
+    flex-wrap: wrap; /* Permite que los íconos pasen a otra fila si no hay suficiente espacio */
+    gap: 20px; /* Espaciado entre los íconos */
+    justify-content: flex-start; /* Alinea los íconos a la izquierda */
+    align-items: center; /* Centra los íconos verticalmente */
+    margin-top: 20px;
+}
+
+/* Estilo para cada ícono */
+.skill-item {
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+    flex: 0 0 auto; /* Evita que los íconos cambien de tamaño */
+}
+
+/* Íconos FontAwesome */
+.skill-item i {
+    font-size: 2rem; /* Tamaño del ícono */
+    margin-bottom: 5px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Texto debajo del ícono */
+.skill-item p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Efecto hover para los íconos */
+.skill-item i:hover {
+    transform: scale(1.2); /* Aumenta ligeramente el tamaño al pasar el ratón */
+    color: #005bb5; /* Cambia a un color más oscuro */
+}
+
+/*STYLE DE ICONOS COLOR*/
+/* HTML5 */
+/* HTML5 */
+.skill-item .html5 {
+    color: #E34F26;
+}
+
+/* CSS3 */
+.skill-item .css3 {
+    color: #1572B6;
+}
+
+/* JavaScript */
+.skill-item .javascript {
+    color: #F7DF1E;
+}
+
+/* React */
+.skill-item .react {
+    color: #61DAFB;
+}
+
+/* Node.js */
+.skill-item .nodejs {
+    color: #339933;
+}
+
+/* Docker */
+.skill-item .docker {
+    color: #2496ED;
+}
+
+/* Git */
+.skill-item .git {
+    color: #F05032;
+}
+
+/* PHP */
+.skill-item .php {
+    color: #777BB4;
+}
+
+/* Python */
+.skill-item .python {
+    color: #3776AB;
+}
+
+/* C# */
+.skill-item .csharp {
+    color: #68217A;
+}
+
+/* Visual Studio Code */
+.skill-item .vscode {
+    color: #007ACC;
+}
+
+/* Linux */
+.skill-item .linux {
+    color: #FCC624;
+}
+
+/* SQL */
+.skill-item .sql {
+    color: #00618A;
+}
+
+/* MongoDB */
+.skill-item .mongodb {
+    color: #47A248;
+}
+
+/* PostgreSQL */
+.skill-item .postgresql {
+    color: #336791;
+}
+
+/* Postman */
+.skill-item .postman {
+    color: #FF6C37;
+}
+
+/* Efecto hover para todos los íconos */
+.skill-item i:hover {
+    transform: scale(1.2); /* Aumenta ligeramente el tamaño */
+    filter: brightness(1.2); /* Hace el color más brillante */
+}
+
+
+
+
+
