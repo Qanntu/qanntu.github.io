@@ -6,7 +6,7 @@
     <title>Resume</title>
     <!-- Enlace a FontAwesome para los íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <div id="navbar"></div>
@@ -158,7 +158,7 @@
     import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
 
     // Cargar el contenido del navbar desde el archivo navbar.html
-    fetch('navbar.html') // Cambia la ruta según la ubicación de tu archivo
+    fetch('/navbar.html') // Cambia la ruta según la ubicación de tu archivo
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
@@ -170,7 +170,7 @@
 </script>
 
 <!-- Script para el modo oscuro/sol -->
-<script src="scripts/theme-toggle.js"></script>
+<script src="../scripts/theme-toggle.js"></script>
 
 </body>
 </html>
