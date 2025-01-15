@@ -10,7 +10,7 @@ body {
 
 /* Modo oscuro */
 body.dark-theme {
-    background-color: #121212;
+    background-color: #1E1E1E;
     color: #ffffff;
 }
 
@@ -38,7 +38,7 @@ nav {
 }
 
 body.dark-theme .theme-toggle {
-    color: #ffffff;
+    color: #F5F5F5;
 }
 
 /* Enlaces del navbar */
@@ -72,11 +72,11 @@ body.dark-theme nav {
 }
 
 body.dark-theme .theme-toggle {
-    color: #ffffff;
+    color: #E0E0E0;
 }
 
 body.dark-theme nav ul li a {
-    color: #ffffff;
+    color: #B0B0B0;
 }
 
 /* Efecto hover */
@@ -104,6 +104,7 @@ section p {
     line-height: 1.5;
     margin: 20px auto;
     max-width: 600px;
+
 }
 
 .icons {
@@ -119,16 +120,34 @@ section p {
     cursor: pointer;
 }
 
+/* Foto de perfil con borde animado */
 .profile-picture {
     width: 150px; /* Tamaño estándar para una foto de perfil */
     height: 150px; /* Mantén la relación 1:1 */
     object-fit: cover; /* Asegura que la imagen se ajuste sin deformarse */
     border-radius: 50%; /* Hace que la imagen sea circular */
-    border: 2px solid #ccc; /* Opcional: Añade un borde alrededor */
+    border: 2px solid transparent; /* Borde transparente para el gradiente */
+    background-image: linear-gradient(45deg, #e40677, #00aaff, #8000ff, #a7557e, #00aaff); /* Gradiente entre rosado, azul y morado */
+    background-size: 400%; /* Tamaño grande del gradiente para que pueda moverse */
+    animation: rotate-border 5s linear infinite; /* Animación para rotar el gradiente */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Opcional: Añade un sombreado */
     display: block; /* Asegura el centrado en contenedores flex */
     margin: 0 auto; /* Centra la imagen horizontalmente */
 }
+
+/* Animación de rotación de colores */
+@keyframes rotate-border {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 /* Estilos para el contenedor del blog */
 .about {
@@ -163,7 +182,7 @@ section p {
     font-size: 1.8em;
     margin-top: 10px;
     margin-left: 0;
-    color: #333;
+    color: #B0B0B0;
     text-align:left;
 }
 
@@ -180,7 +199,7 @@ section p {
 /* Texto del contenido */
 .blog-post p {
     line-height: 1.6;
-    color: #555;
+    color: #777;
     margin-left: 0;
 }
 
@@ -210,7 +229,7 @@ section p {
 
 /* Estilo para cada tarjeta */
 .fun-card {
-    background-color: #fff;
+    background-color: #B1B6D8;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -271,7 +290,7 @@ section p {
 
 /* Estilo para cada tarjeta de proyecto */
 .project-card {
-    background-color: #fff;
+    background-color: #B1B6D8;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -318,8 +337,8 @@ section p {
 .resume-header {
     text-align: center;
     padding: 20px;
-    background-color: #f3f3f3;
-    border-bottom: 2px solid #ddd;
+    background: linear-gradient(to center, #555, rgba(85, 85, 85, 0) 50%);
+
 }
 
 .resume-header img {
@@ -345,7 +364,7 @@ section p {
     font-size: 1.8rem;
     color: slategrey;
     margin-top: 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #f9f9f9;
     padding-bottom: 5px;
     text-align: left;
 
@@ -360,7 +379,7 @@ section p {
 
 .resume-item h3 {
     font-size: 1.5rem;
-    color: #333;
+    color: #999;
     margin-bottom: 5px;
     text-align: justify;
 
@@ -375,7 +394,7 @@ section p {
 }
 .resume-item p {
     font-size: 1rem;
-    color: #555;
+    color: #777;
     margin: 5px 0;
     line-height: 1.6;
     text-align: justify;
@@ -440,7 +459,7 @@ section p {
 .skill-item p {
     margin: 0;
     font-size: 0.9rem;
-    color: #333;
+    color: #999;
 }
 
 /* Efecto hover para los íconos */
