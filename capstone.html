@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone</title>
+
+    <!-- fuente Dosis -->
+    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!--three.js desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+</head>
+<body>
+
+<!-- Agregar el fondo de Three.js -->
+<canvas id="backgroundCanvas"></canvas>
+
+<div id="navbar"></div>
+
+<h1 class="capstone-title">Capstone</h1>
+
+<section class="capstone-container">
+
+
+
+    <div class="capstone-content">
+        <h2 id="capstone-title"></h2>
+        <div id="capstone-description">
+            <p id="default-text">
+                JustIn is a mobile app that optimizes restaurant waitlist management by providing real-time wait estimates and allowing users to remotely join waitlists. It uses AI-powered Raspberry Pi 5 cameras to monitor table occupancy and customer entries, helping restaurants enhance service efficiency.
+            </p>
+
+        </div>
+        <button id="download-btn" style="display: none;">Download PDF</button>
+    </div>
+
+
+
+    <div class="capstone-sidebar">
+        <ul>
+            <li class="capstone-item" data-title="Summary Vision">Project Vision</li>
+            <li class="capstone-item" data-title="Project Plan">Project Plan</li>
+            <li class="capstone-item" data-title="Analysis and Design">Analysis and Design</li>
+            <li class="capstone-item" data-title="Wireframes/Mockups">Wireframes/Mockups</li>
+            <li class="capstone-item" data-title="Status Reports and Implementation">Status Reports and Implementation</li>
+        </ul>
+    </div>
+
+</section>
+
+
+
+<script type="module">
+    import { initializeDarkMode } from './scripts/theme-toggle.js';
+    import { initializeThreeJS } from './scripts/three-scene.js';
+
+
+    fetch('/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+            initializeDarkMode();
+            initializeThreeJS();
+        })
+        .catch(error => console.error('Error loading navbar:', error));
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebarItems = document.querySelectorAll(".capstone-item");
+        const title = document.getElementById("capstone-title");
+        const description = document.getElementById("capstone-description");
+        const downloadBtn = document.getElementById("download-btn");
+
+
+        const contentData = {
+            "Summary Vision": "This section provides an overview of the project, including its purpose, goals, and expected outcomes.",
+            "Project Plan": "Project plan outlines the timeline, milestones, and resources needed to complete the project successfully.",
+            "Analysis and Design": "This section details the research, methodologies, and design principles used in the project.",
+            "Wireframes/Mockups": "Wireframes and mockups showcase the visual structure and layout of the application before development.",
+            "Status Reports and Implementation": "Status reports provide updates on the progress of the project, challenges faced, and next steps."
+        };
+
+
+        const pdfFiles = {
+            "Summary Vision": "Summary_Vision.pdf",
+            "Project Plan": "Project_Plan.pdf",
+            "Analysis and Design": "Analysis_and_Design.pdf",
+            "Wireframes/Mockups": "Wireframes_Mockups.pdf",
+            "Status Reports and Implementation": "Project_Status_Report.pdf"
+        };
+
+
+        sidebarItems.forEach(item => {
+            item.addEventListener("click", function () {
+                sidebarItems.forEach(el => el.classList.remove("active"));
+                this.classList.add("active");
+
+                const selectedCategory = this.dataset.title;
+                title.textContent = selectedCategory;
+
+
+                description.innerHTML = `<p>${contentData[selectedCategory] || "No information available."}</p>`;
+
+
+                if (pdfFiles[selectedCategory]) {
+                    downloadBtn.style.display = "block";
+                    downloadBtn.textContent = `Download ${selectedCategory} PDF`;
+                    downloadBtn.setAttribute("onclick", `downloadPDF('${pdfFiles[selectedCategory]}')`);
+                } else {
+                    downloadBtn.style.display = "none"; e
+                }
+            });
+        });
+    });
+
+    // Fdownload pdfs
+    function downloadPDF(pdfFileName) {
+        const pdfPath = `./pdfs/${pdfFileName}`; // route
+
+        const link = document.createElement("a");
+        link.href = pdfPath;
+        link.download = pdfFileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("loaded");
+
+        const links = document.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+                if (this.getAttribute("href").includes("#")) return;
+                event.preventDefault();
+                const destination = this.href;
+
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 300);
+            });
+        });
+    });
+</script>
+
+
+</body>
+</html>

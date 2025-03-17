@@ -4,37 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="/styles.css">
-    <!-- Enlace a FontAwesome para los íconos -->
+
+    <!--  fuente Dosis -->
+    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet">
+
+    <!--  CSS -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!--FontAwesome para los íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- Three.js desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+
+
 </head>
-<body>
+<body class="index-page">
+
+
+<!--fondo de Three.js -->
+<canvas id="backgroundCanvas"></canvas>
+
 <div id="navbar"></div>
 
 <section>
-    <h1>Hello, my name is Liz 👋 </h1>
-    <p>"One of the things I love most about the world of development is the collaboration between diverse minds, where each perspective brings something unique to create extraordinary ideas. This reinforces my belief that if we want to go far in each community, we must do it together." 🌍</p>
+    <h1 class="liz-title">Liz Cruz</h1>
+
+    <p>One of the things I love most about the world of development is the collaboration between diverse minds, where each perspective brings something unique to create extraordinary ideas. This reinforces my belief that if we want to go far in each community, we must do it together.</p>
 </section>
+
+<!--  Div para la luz del cursor -->
+<div class="cursor-light"></div>
 
 <!-- Script para cargar el navbar -->
 <script type="module">
-    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+    import { initializeDarkMode } from './scripts/theme-toggle.js';
+    import { initializeThreeJS } from './scripts/three-scene.js'; // el fondo de Three.js
 
-    // Cargar el contenido del navbar desde el archivo navbar.html
-    fetch('/navbar.html') // Cambia la ruta según la ubicación de tu archivo
+
+    fetch('/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
+            initializeDarkMode(); // Inicializar el modo oscuro
+            initializeThreeJS(); // Inicializar Three.js
 
-            // Inicializar la lógica del modo oscuro después de cargar el navbar
-            initializeDarkMode();
         })
         .catch(error => console.error('Error loading navbar:', error));
+
+
+
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("loaded");
 
-<!-- Script para el modo oscuro/sol -->
-<script src="../scripts/theme-toggle.js"></script>
+        const links = document.querySelectorAll(".nav-link");
+        const content = document.getElementById("content");
+
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const url = this.getAttribute("href");
+
+                // Aplicar fade-out suavemente
+                content.style.transition = "opacity 0.5s ease-in-out";
+                content.style.opacity = 0.3; /r
+
+                setTimeout(() => {
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(data => {
+                            const tempDiv = document.createElement("div");
+                            tempDiv.innerHTML = data;
+
+
+                            const newContent = tempDiv.querySelector("#content");
+
+                            if (newContent) {
+                                content.innerHTML = newContent.innerHTML;
+                            } else {
+                                content.innerHTML = data;
+                            }
+
+                            content.style.opacity = 1;
+                        })
+                        .catch(error => console.error("❌ Error cargando la vista:", error));
+                }, 300);
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

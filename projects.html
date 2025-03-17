@@ -4,60 +4,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
-    <link rel="stylesheet" href="/styles.css">
-    <!-- Enlace a FontAwesome para los íconos -->
+    <link rel="stylesheet" href="./styles.css">
+    <!-- fuente Dosis -->
+    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css">
+    <!--  FontAwesome para los íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!--  Three.js desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
+
+<!-- Three.js -->
+<canvas id="backgroundCanvas"></canvas>
+
+
 <div id="navbar"></div>
 
 <section class="projects">
-    <h1>Projects 🚀</h1>
+    <h1>Projects</h1>
 
-    <div class="project-cards">
-        <!-- Card 1 -->
-        <div class="project-card">
-            <img src="../assets/connect-4game.jpg" alt="Connect4Game">
+    <div class="projects-list">
+
+        <!-- Project 1 -->
+        <div class="project-item">
+            <img src="./assets/Justin.jpg" alt="Capstone Project" class="project-image" id="capstone-image">
+            <h2>Capstone Project</h2>
+            <div class="project-tech">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg" alt="IntelliJ IDEA" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/raspberrypi/raspberrypi-original.svg" alt="Raspberry Pi" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="icon">
+
+            </div>
+            <p>Justin is a mobile app that streamlines restaurant waitlist management by displaying real-time wait estimates and enabling users to join remotely. It leverages a Raspberry Pi 5 AI camera to track table occupancy and customer flow. Built with a monolithic MVC architecture using Spring Boot, Gradle, and integrated Google Maps API for restaurant details.</p>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+            <img src="./assets/hocus.jpg" alt="Hocus" class="project-image">
+            <h2>To-do List App</h2>
+            <div class="project-tech">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg" alt="Xcode" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="icon">
+            </div>
+            <p>To-Do List App in Swift is an application that allows users to add, edit, mark as completed, and delete tasks easily. It uses SwiftUI for the interface</p>
+        </div>
+
+
+        <!-- Project 3 -->
+        <div class="project-item">
+            <img src="../assets/connect-4game.jpg" alt="Connect4Game" class="project-image">
             <h2>Connect4Game</h2>
-            <h3>Java</h3>
+            <div class="project-tech">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="icon">
+            </div>
             <p>Classic two-player strategy game where players take turns dropping colored discs into a vertical grid, aiming to align four in a row horizontally, vertically, or diagonally to win.</p>
         </div>
 
-        <!-- Card 2 -->
-        <div class="project-card">
-            <img src="../assets/store-management.jpg" alt="Store Manager">
+        <!-- Project 4 -->
+        <div class="project-item">
+            <img src="../assets/store-management.jpg" alt="Store Manager" class="project-image">
             <h2>Store Manager</h2>
-            <h3>Python</h3>
+            <div class="project-tech">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="icon">
+            </div>
             <p>Store Management App is a Python application that allows users to manage inventory and place orders for items from the store.</p>
         </div>
 
-        <!-- Card 3 -->
-        <div class="project-card">
-            <img src="../assets/trips-website.jpg" alt="Trips">
+        <!-- Project 5 -->
+        <div class="project-item">
+            <img src="./assets/trips-website.jpg" alt="Trips" class="project-image">
             <h2>Trips Platform</h2>
-            <h3>ASP.NET (MVC)</h3>
+            <div class="project-tech">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET" class="icon">
+
+            </div>
             <p>Website that simplifies travel planning by offering flight, hotel, and vacation package bookings, along with personalized recommendations and pricing.</p>
         </div>
+
+        <!-- Project 6 -->
+        <div class="project-item">
+            <img src="./assets/portfolio.jpg" alt="Portfolio" class="project-image">
+            <h2>JustIn App</h2>
+            <div class="Portfolio Website">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/threejs/threejs-original.svg" alt="Three.js" class="icon">
+
+            </div>
+            <p>My portfolio website developed with HTML, CSS, and JavaScript, seamlessly blending design and functionality to create engaging web experiences. Utilizing Three.js, I incorporate immersive 3D graphics to bring every detail to life. Additionally, my website is hosted on GitHub Pages, ensuring a reliable and cloud-based deployment.</p>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="project-item">
+            <img src="./assets/currencyconverter.jpg" alt="Converter" class="project-image">
+            <h2>Currency Converter App</h2>
+            <div class="project-tech">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" class="icon">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="icon">
+            </div>
+            <p>A mobile application developed with React Native and Expo that allows users to convert between different currencies in real-time. It uses React Navigation for screen navigation and Fetch API or Axios to retrieve exchange rates from an external API.</p>
+        </div>
+
     </div>
+
 </section>
+
 
 <!-- Script para cargar el navbar -->
 <script type="module">
-    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+    import { initializeDarkMode } from '../scripts/theme-toggle.js';
+    import { initializeThreeJS } from '../scripts/three-scene.js';
 
-    // Cargar el contenido del navbar desde el archivo navbar.html
-    fetch('/navbar.html') // Cambia la ruta según la ubicación de tu archivo
+
+    fetch('/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
 
-            // Inicializar la lógica del modo oscuro después de cargar el navbar
+
             initializeDarkMode();
+            initializeThreeJS(); // Inicializar Three.js
         })
         .catch(error => console.error('Error loading navbar:', error));
 </script>
 
 <!-- Script para el modo oscuro/sol -->
 <script src="../scripts/theme-toggle.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("loaded");
+
+        const links = document.querySelectorAll(".nav-link");
+        const content = document.getElementById("content");
+
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const url = this.getAttribute("href");
+
+
+                content.style.transition = "opacity 0.5s ease-in-out";
+                content.style.opacity = 0.3;
+
+                setTimeout(() => {
+                    fetch(url)
+                        .then(response => response.text())
+                        .then(data => {
+                            const tempDiv = document.createElement("div");
+                            tempDiv.innerHTML = data;
+
+
+                            const newContent = tempDiv.querySelector("#content");
+
+                            if (newContent) {
+                                content.innerHTML = newContent.innerHTML;
+                            } else {
+                                content.innerHTML = data;
+                            }
+
+                            content.style.opacity = 1;
+                        })
+                        .catch(error => console.error("❌ Error cargando la vista:", error));
+                }, 300);
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        const projectImages = document.querySelectorAll(".project-image");
+
+        projectImages.forEach(image => {
+            image.addEventListener("click", function() {
+
+                const paragraph = this.closest(".project-item").querySelector("p");
+
+            n
+                if (paragraph.style.display === "none" || paragraph.style.display === "") {
+                    paragraph.style.display = "block"; // Mostrar el párrafo
+                    setTimeout(() => paragraph.style.opacity = "1", 10);
+                } else {
+                    paragraph.style.opacity = "0"; // Ocultar con transición
+                    setTimeout(() => paragraph.style.display = "none", 500);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const capstoneImage = document.getElementById("capstone-image");
+
+        if (capstoneImage) {
+            capstoneImage.addEventListener("click", function () {
+                window.location.href = "./capstone.html";
+            });
+        }
+    });
+</script>
+
+
 </body>
 </html>

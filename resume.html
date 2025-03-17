@@ -4,173 +4,352 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume</title>
-    <!-- Enlace a FontAwesome para los íconos -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/styles.css">
+
+    <!-- fuente Dosis -->
+    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+
+    <!--  archivo CSS -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
+    <!-- Three.js desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+
 </head>
 <body>
+
+<!-- fondo de Three.js -->
+<canvas id="backgroundCanvas"></canvas>
+
 <div id="navbar"></div>
 
-<section class="resume">
-    <div class="resume-header">
-        <h1>Resume 📄</h1>
-        <p>Computer Programmer and Analyst</p>
+<section class="resume-container">
+
+    <h1>Resume</h1>
+    <!-- Sección de Contenido (izquierda) -->
+    <div class="resume-content">
+        <h2 id="resume-title"></h2>
+        <div id="resume-description">
+            <p>lizzette.wk@gmail.com</p>
+            <p>https://github.com/Qanntu</p>
+            <p>Canada, ON</p>
+        </div>
     </div>
 
-    <h2>Education 🎓</h2>
-    <div class="resume-item">
-        <h3>George Brown College</h3>
-        <h4>Advanced Diploma Degree in Computer Programming and Analysis | Graduating April 2025</h4>
-        <p><em>Relevant Coursework:</em> Database Management, Full-Stack Development,
-            Object-Oriented Programming, Data Structures and Algorithms,
-            Agile Software Development, Applied Data Science, Application Development, DevOps.
-        </p>
+    <!-- Lista de Categorías (bottom) -->
+    <div class="resume-sidebar">
+        <ul>
+            <li class="resume-item" data-title="Education" data-content="education">Education</li>
+            <li class="resume-item active" data-title="Experience" data-content="Details about your work experience.">Experience</li>
+            <li class="resume-item" data-title="Skills" data-content="Your professional and technical skills.">Skills</li>
 
-        <br>
-
-        <h3>Argentine Chamber of Commerce and Services</h3>
-        <h4>Higher Technician in Systems Administration | Graduated December 2019</h4>
-        <p><em>Relevant Coursework:</em> Server Administration, Network and systems security,
-            Database maintenance and optimization, Firewall management and intrusion detection systems,
-            Malware protection and security auditing, Internet of Things (IoT), Diagnosis and resolution of hardware and software issues.
-        </p>
-    </div>
-
-    <br>
-    <br>
-
-    <h2>Experience 💼</h2>
-    <div class="resume-item">
-        <h3>Mysterious Package Company</h3>
-        <h4>Junior Application Support |  (Ago 2023 - April 2024)</h4>
-        <p>Assisted in the maintenance and support of a stock management system, ensuring accurate and up-to-date inventory data.</p>
-        <p>Monitored system performance and reported issues to senior developers for resolution.</p>
-        <p>Performed basic troubleshooting and debugging to address minor technical issues and user inquiries</p>
-        <p>Updated system documentation to reflect changes.</p>
-        <p>Collaborated with the team to test and deploy updates.</p>
-    </div>
-
-    <br>
-    <br>
-
-    <h2>Skills and Tools 💻</h2>
-    <div class="skills-icons">
-        <!-- HTML -->
-        <div class="skill-item">
-            <i class="fab fa-html5 html5"></i>
-            <p>HTML5</p>
-        </div>
-
-        <!-- CSS -->
-        <div class="skill-item">
-            <i class="fab fa-css3-alt css3"></i>
-            <p>CSS3</p>
-        </div>
-
-        <!-- JavaScript -->
-        <div class="skill-item">
-            <i class="fab fa-js-square javascript"></i>
-            <p>JavaScript</p>
-        </div>
-
-        <!-- React -->
-        <div class="skill-item">
-            <i class="fab fa-react react"></i>
-            <p>React.js</p>
-        </div>
-
-        <!-- Node.js -->
-        <div class="skill-item">
-            <i class="fab fa-node-js nodejs"></i>
-            <p>Node.js</p>
-        </div>
-
-        <!-- Docker -->
-        <div class="skill-item">
-            <i class="fab fa-docker docker"></i>
-            <p>Docker</p>
-        </div>
-
-        <!-- Git -->
-        <div class="skill-item">
-            <i class="fab fa-git-alt git"></i>
-            <p>Git</p>
-        </div>
-
-        <!-- PHP -->
-        <div class="skill-item">
-            <i class="fab fa-php php"></i>
-            <p>PHP</p>
-        </div>
-
-        <!-- Python -->
-        <div class="skill-item">
-            <i class="fab fa-python python"></i>
-            <p>Python</p>
-        </div>
-
-        <!-- C# -->
-        <div class="skill-item">
-            <i class="fas fa-code csharp"></i>
-            <p>C#</p>
-        </div>
-
-        <!-- Visual Studio Code -->
-        <div class="skill-item">
-            <i class="fas fa-code-branch vscode"></i>
-            <p>VS Code</p>
-        </div>
-
-        <!-- Linux -->
-        <div class="skill-item">
-            <i class="fab fa-linux linux"></i>
-            <p>Linux</p>
-        </div>
-
-        <!-- SQL -->
-        <div class="skill-item">
-            <i class="fas fa-database sql"></i>
-            <p>SQL</p>
-        </div>
-
-        <!-- MongoDB -->
-        <div class="skill-item">
-            <i class="fas fa-leaf mongodb"></i>
-            <p>MongoDB</p>
-        </div>
-
-        <!-- PostgreSQL -->
-        <div class="skill-item">
-            <i class="fas fa-database postgresql"></i>
-            <p>PostgreSQL</p>
-        </div>
-
-        <!-- Postman -->
-        <div class="skill-item">
-            <i class="fas fa-envelope postman"></i>
-            <p>Postman</p>
-        </div>
+        </ul>
     </div>
 </section>
 
 <!-- Script para cargar el navbar -->
 <script type="module">
-    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+    import { initializeDarkMode } from './scripts/theme-toggle.js';
+    import { initializeThreeJS } from './scripts/three-scene.js';
 
-    // Cargar el contenido del navbar desde el archivo navbar.html
-    fetch('/navbar.html') // Cambia la ruta según la ubicación de tu archivo
+
+    fetch('/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
-
-            // Inicializar la lógica del modo oscuro después de cargar el navbar
             initializeDarkMode();
+            initializeThreeJS();
         })
         .catch(error => console.error('Error loading navbar:', error));
 </script>
 
-<!-- Script para el modo oscuro/sol -->
-<script src="../scripts/theme-toggle.js"></script>
+<!-- Script para el cambio de categorías en Resume -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const sidebarItems = document.querySelectorAll(".resume-item");
+        const title = document.getElementById("resume-title");
+        const description = document.getElementById("resume-description");
+
+
+        const contentData = {
+            "Experience": `<div class="resume-item">
+                <h3>Mysterious Package Company</h3>
+                <h4>Junior Application Support |  (Ago 2023 - April 2024)</h4>
+                <p>Assisted in the maintenance and support of a stock management system, ensuring accurate and up-to-date inventory data.</p>
+                <p>Monitored system performance and reported issues to senior developers for resolution.</p>
+                <p>Performed basic troubleshooting and debugging to address minor technical issues and user inquiries</p>
+                <p>Updated system documentation to reflect changes.</p>
+                <p>Collaborated with the team to test and deploy updates.</p>
+
+                <br>
+                <br>
+
+                <h3>Iron Mountain Argentina</h3>
+                <h4>Commercial Data Analyst |  (May 2013 - Sep 2019)</h4>
+                <p>Collected and cleaned data from various sources (databases, spreadsheets), ensuring accuracy and reliability.</p>
+
+                <p>Analyzed business data to identify patterns and trends, evaluated product and customer performance, and assessed the effectiveness of marketing and sales strategies.</p>
+
+                <p>Created reports and dashboards using tools like Power BI and Excel to visualize data and present actionable insights to commercial teams and leadership.</p>
+
+                <p>Analyzed user behavior, service usage patterns, and customer complaints to identify trends and improve customer experience.</p>
+
+                <p>Participated in quality working groups and advisory committees, managing action items and implementing mitigation strategies.</p>
+
+                <p>Collaborated with marketing, sales, and finance teams to align data-driven strategies and assess their impact.</p>
+
+                <p>Reviewed, generated, and documented procedures to ensure compliance with ISO 27000 standards.</p>
+
+
+
+
+            </div>`,
+
+
+            "Education": `<div class="resume-item">
+                <h3>George Brown College</h3>
+                <h4>Advanced Diploma Degree in Computer Programming and Analysis | Graduating in April 2025</h4>
+                <p><strong> Technical Skills & Core Competencies: </strong><br>
+                    <mark>*Software Development:</mark> Full-Stack Development, Mobile & Web Applications, API Development, Cross-Platform Apps.<br>
+                    <mark>*Object-Oriented Programming (OOP):</mark> Java, Swift, Python, JavaScript, TypeScript.<br>
+                    <mark>*Mobile App Development:</mark> Native Android (Java), iOS (Swift, CodeX), React Native.<br>
+                    <mark>*Agile & DevOps:</mark> CI/CD Pipelines, GitHub Actions, Docker, Cloud Infrastructure.<br>
+                    <mark>*Database Management:</mark> SQL (PostgreSQL, MySQL), NoSQL (MongoDB).<br>
+                    <mark>*Data Structures & Algorithms:</mark> Algorithm Optimization, System Design, Scalability.<br>
+                    <mark>*Applied Data Science & Machine Learning:</mark> Supervised & Unsupervised Learning, Regression, Classification, Clustering, Neural Networks.<br>
+                    <mark>*Deep Learning & AI:</mark> TensorFlow, Keras.<br>
+
+                </p>
+
+                <br>
+                <br>
+
+                <h3>Argentine Chamber of Commerce and Services</h3>
+                <h4>Higher Technician in Systems Administration | Graduated December 2019</h4>
+                <p><strong> Technical Skills & Core Competencies: </strong><br>
+                    <mark>*IT Systems Administration:</mark> (Windows Server, Linux)<br>
+                    <mark>*Network Security & Threat Detection:</mark> (IDS/IPS, SIEM, Firewalls)<br>
+                    <mark>*Virtualization & Cloud Infrastructure:</mark> (AWS, Azure, Docker)<br>
+                    <mark>*Database Administration & Optimization:</mark> (MySQL, MongoDB)<br>
+                    <mark>*Network Configuration & Monitoring:</mark> (Cisco, Wireshark)<br>
+                    <mark>*Scripting & Automation:</mark> (Bash, PowerShell)<br>
+                    <mark>*Internet of Things (IoT) & Edge Computing Implementation</mark><br>
+                    <mark>*Troubleshooting & Performance Optimization</mark>
+
+                </p>
+            </div>`,
+
+
+            "Skills": `<div class="skills-icons">
+                 <!-- Figma -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma" class="icon">
+                    <p>Figma</p>
+                </div>
+
+                <!-- Jira -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" alt="Jira" class="icon">
+                    <p>Jira</p>
+                </div>
+
+                <!-- Postman -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" alt="Postman" class="icon">
+                    <p>Postman</p>
+                </div>
+
+                <!-- Bootstrap -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="icon">
+                    <p>Bootstrap</p>
+                </div>
+
+                <!-- C# -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="icon">
+                    <p>C#</p>
+                </div>
+
+                <!-- .NET -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt=".NET" class="icon">
+                    <p>.NET</p>
+                </div>
+
+                <!-- Azure -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" class="icon">
+                    <p>Azure</p>
+                </div>
+
+                <!-- HTML5 -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="icon">
+                    <p>HTML5</p>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="icon">
+                    <p>CSS3</p>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="icon">
+                    <p>JavaScript</p>
+                </div>
+
+                <!-- React -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React.js" class="icon">
+                    <p>React.js</p>
+                </div>
+
+                <!-- Node.js -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" class="icon">
+                    <p>Node.js</p>
+                </div>
+
+                <!-- Docker -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="icon">
+                    <p>Docker</p>
+                </div>
+
+                <!-- Git -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="icon">
+                    <p>Git</p>
+                </div>
+
+                <!-- PHP -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="icon">
+                    <p>PHP</p>
+                </div>
+
+                <!-- Python -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="icon">
+                    <p>Python</p>
+                </div>
+
+                <!-- VS Code -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" class="icon">
+                    <p>VS Code</p>
+                </div>
+
+                <!-- Linux -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="icon">
+                    <p>Linux</p>
+                </div>
+
+                <!-- SQL -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL" class="icon">
+                    <p>SQL</p>
+                </div>
+
+                <!-- MongoDB -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" class="icon">
+                    <p>MongoDB</p>
+                </div>
+
+                <!-- PostgreSQL -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="icon">
+                    <p>PostgreSQL</p>
+                </div>
+
+                <!-- Java -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="icon">
+                    <p>Java</p>
+                </div>
+
+                <!-- JavaScript -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="icon">
+                    <p>JavaScript</p>
+                </div>
+
+                <!-- React Native -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native" class="icon">
+                    <p>React Native</p>
+                </div>
+
+                <!-- Swift -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" alt="Swift" class="icon">
+                    <p>Swift</p>
+                </div>
+
+                <!-- Xcode -->
+                <div class="skill-item">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg" alt="Xcode" class="icon">
+                    <p>Xcode</p>
+                </div>
+
+
+
+
+
+            </div>`,
+
+            //"Certifications": "<p>List of your certifications.</p>",
+
+        };
+
+        //cambiar el contenido al hacer clic en un elemento del sidebar
+        sidebarItems.forEach(item => {
+            item.addEventListener("click", function () {
+                sidebarItems.forEach(el => el.classList.remove("active"));
+                this.classList.add("active");
+
+                const selectedCategory = this.dataset.title;
+                title.textContent = selectedCategory;
+
+
+                description.innerHTML = contentData[selectedCategory];
+            });
+        });
+    });
+</script>
+
+<!-- Script para transiciones suaves entre vistas -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.body.classList.add("loaded");
+
+        const links = document.querySelectorAll("a");
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+                if (this.getAttribute("href").includes("#")) return;
+                event.preventDefault();
+                const destination = this.href;
+
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 300);
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
+

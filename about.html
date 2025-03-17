@@ -4,11 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Me</title>
-    <link rel="stylesheet" href="/styles.css">
+
+    <!-- Importar la fuente Dosis -->
+    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet">
+
+    <link rel="stylesheet" href="./styles.css">
     <!-- Enlace a FontAwesome para los íconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
+
+    <!-- Incluir Three.js desde CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 </head>
 <body>
+
+<!-- 🎇 Agregar el fondo de Three.js -->
+<canvas id="backgroundCanvas"></canvas>
+
 <!-- Contenedor del navbar -->
 <div id="navbar"></div>
 
@@ -19,45 +33,83 @@
     <!-- Publicación 1 -->
     <article class="blog-post">
         <p class="post-date">January 2, 2025 · 10:00 AM</p>
-        <img src="../assets/profile-picture2.jpeg" alt="Profile Picture" class="profile-picture">
-        <h2>Hi, I’m Liz 👋</h2>
-        <p>I am a dedicated <strong>Computer Programming</strong> student 💻 with a passion for technology, innovation, creativity, and teamwork. I enjoy solving complex problems through the power of computing and the synergy that collaboration within a team can bring.</p>
-        <p>I firmly believe that achieving better results is always possible with a strong commitment to transforming ideas into reality. ✨</p>
+
+        <div class ="profile-container">
+            <div class="profile-border"></div> <!-- Capa que rota -->
+            <img src="./assets/profilePicture.jpg" alt="Profile Picture" class="profile-picture">
+        </div>
+
+        <h2>Hi, I’m Liz </h2>
+        <p>I am a dedicated <strong>Computer Programming</strong> student  with a passion for technology, innovation, creativity, and teamwork. I enjoy solving complex problems through the power of computing and the synergy that collaboration within a team can bring.</p>
+        <p>I firmly believe that achieving better results is always possible with a strong commitment to transforming ideas into reality. </p>
     </article>
 
     <!-- Publicación 2 -->
     <article class="blog-post">
         <p class="post-date">December 25, 2024 · 5:30 PM</p>
         <h2>Reflecting on 2024</h2>
-        <p>This year has been an incredible journey. I’ve learned new programming languages, worked on exciting projects, and connected with amazing people. Looking forward to 2025! 🎉</p>
+        <p>This year has been an incredible journey. I’ve learned new programming languages, worked on exciting projects, and connected with amazing people. Looking forward to 2025! </p>
     </article>
 
     <!-- Publicación 3 -->
     <article class="blog-post">
         <p class="post-date">November 15, 2024 · 3:15 PM</p>
         <h2>Exploring Web Development</h2>
-        <p>I’ve been diving deeper into web development, especially using React and Node.js. The possibilities feel endless, and I’m excited to see where this path takes me! 🌐</p>
+        <p>I’ve been diving deeper into web development, especially using React and Node.js. The possibilities feel endless, and I’m excited to see where this path takes me! </p>
     </article>
 </section>
 
 <!-- Script para cargar el navbar -->
 <script type="module">
-    import { initializeDarkMode } from '../scripts/theme-toggle.js'; // Asegúrate de usar la ruta correcta
+    import { initializeDarkMode } from '../scripts/theme-toggle.js';
+    import { initializeThreeJS } from '../scripts/three-scene.js'; // Importar el fondo de Three.js
 
     // Cargar el contenido del navbar desde el archivo navbar.html
-    fetch('/navbar.html') // Cambia la ruta según la ubicación de tu archivo
+    fetch('/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
 
-            // Inicializar la lógica del modo oscuro después de cargar el navbar
+
             initializeDarkMode();
+            initializeThreeJS(); // Inicializar Three.js
         })
         .catch(error => console.error('Error loading navbar:', error));
 </script>
 
 <!-- Script para el modo oscuro/sol -->
-<script src="../scripts/theme-toggle.js"></script>
+<script src="./scripts/theme-toggle.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        document.body.style.opacity = "1";
+
+
+        const links = document.querySelectorAll("a");
+
+        links.forEach(link => {
+            link.addEventListener("click", function (event) {
+
+                if (this.getAttribute("href").includes("#") || this.getAttribute("target") === "_blank") {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const destination = this.href;
+
+
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = destination;
+                }, 300);
+            });
+        });
+    });
+</script>
+
 
 
 </body>
