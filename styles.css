@@ -204,7 +204,27 @@ body.dark-theme .theme-toggle {
     color: #F5F5F5;
 }
 
-/* Enlaces del navbar */
+/*################################# Enlaces del navbar #####################################*/
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(10, 10, 10, 0.6);
+    backdrop-filter: blur(6px);
+    padding: 12px 20px;
+    font-family: "Courier New", Consolas, monospace;
+}
+
+
 nav ul {
     list-style: none;
     display: flex;
@@ -259,6 +279,58 @@ nav ul li a:hover {
 nav ul li a:hover {
     color: #FAFF70;
 }
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    .liz-title {
+        font-size: 2.4rem;
+        margin-top: 80px; /* evita que el título se solape con el navbar fijo */
+    }
+
+    section.home {
+        padding-top: 140px; /* deja espacio para el navbar */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    section.home p {
+        max-width: 90vw;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: center;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #FAFF70;
+    cursor: pointer;
+}
+
+nav, .menu-toggle {
+    position: relative;
+    z-index: 100;
+}
+
 
 
 /* Cambios de color en modo oscuro */
@@ -350,10 +422,15 @@ section p {
 /*titulo con mi nombre en Index*/
 .liz-title {
     font-family: 'Fredericka the Great', cursive;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: normal;
     text-align: center;
+    margin-bottom: 10px;
+}
 
+.liz-subtitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
 
@@ -372,12 +449,15 @@ section p {
 }
 /*##################################### ESTILOS SOLO PARA HOME #############################*/
 section.home {
-    padding-top: 10px; /* Ajusta este valor según el tamaño de tu navbar */
-    text-align: center;
+    min-height: 100vh;
+    padding-top: 100px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-
+    text-align: center;
+    z-index: 1;
+    position: relative;
 }
 
 .index-page .home {
@@ -386,6 +466,12 @@ section.home {
     margin-top: 0;
     justify-content: center;
     background: transparent; /* Asegura que no interfiera con el canvas */
+}
+
+.home p {
+    max-width: 600px;
+    font-size: 1.2rem;
+    line-height: 1.6;
 }
 
 
@@ -446,10 +532,11 @@ section.home {
 .about {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 160px 20px 20px 20px;
     font-family: "Courier New", Consolas, monospace;
     text-align: center;
 }
+
 
 /* Centrar el título */
 .about h1 {
@@ -550,7 +637,7 @@ body.dark-theme .blog-post p {
 .fun {
     max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 160px 20px 20px 20px;
     font-family: "Courier New", Consolas, monospace;
 }
 
@@ -648,7 +735,7 @@ body.dark-theme .blog-post p {
 .projects {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 160px 20px 20px 20px;
     font-family: "Courier New", Consolas, monospace;
 }
 
@@ -763,6 +850,10 @@ body.dark-theme .blog-post p {
 
 
 /*######################################    RESUME VIEW   #####################################################*/
+
+
+
+
 /* Resume Header */
 .resume-header {
     text-align: center;
@@ -822,7 +913,7 @@ body.dark-theme .blog-post p {
     align-items: center; /* Centra todo el contenido horizontalmente */
     max-width: 1500px;
     margin: auto;
-    padding: 20px;
+    padding: 160px 20px 20px 20px;
     gap: 40px; /* Espacio entre los elementos */
     min-height: 100vh; /*Mantiene la altura completa */
     height: auto; /* Elimina la altura fija */
@@ -848,8 +939,8 @@ body.dark-theme .blog-post p {
 
 /* Sección de contenido (izquierda) */
 .resume-content {
-    width: 70%; /* Ajusta el tamaño según necesites */
-    max-width: 900px; /* Limita el ancho máximo */
+    width: 70%;
+    max-width: 900px;
 
     padding: 30px;
     border-radius: 30px;
@@ -857,15 +948,15 @@ body.dark-theme .blog-post p {
     transition: opacity 0.3s ease-in-out;
 
     /* Centrar horizontalmente */
-    margin: auto; /* Centra horizontalmente en su contenedor */
+    margin: auto;
 
     /* Centrar verticalmente */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Centrar contenido interno */
-    align-items: center; /* Centrar contenido interno */
+    justify-content: flex-start;
+    align-items: center;
 
-    min-height: auto; /* Ajusta la altura para centrar */
+    min-height: auto;
 }
 
 
@@ -1006,14 +1097,29 @@ mark {
 
 /* Diseño Responsive */
 @media (max-width: 768px) {
-    .resume-container {
-        flex-direction: column;
-
+    section.home {
+        padding: 80px 20px 40px 20px; /* espacio para el navbar arriba */
+        text-align: center;
     }
-    .resume-sidebar {
-        order: -1;
+
+    .liz-title {
+        font-size: 2.5rem; /* más pequeño para móviles */
+    }
+
+    .liz-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+
+    section.home p {
+        font-size: 1rem;
+        line-height: 1.5;
+        max-width: 90vw;
+        text-align: center;
+        margin: 0 auto;
     }
 }
+
 
 
 

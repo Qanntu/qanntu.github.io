@@ -20,7 +20,7 @@ export function initializeDarkMode() {
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'dark') {
         body.classList.add('dark-theme');
-        root.classList.add('dark-theme'); // ✅ esta sí se queda
+        root.classList.add('dark-theme');
 
         themeIcon.classList.remove('fa-lightbulb');
         themeIcon.classList.add('fa-solid', 'fa-lightbulb', 'glowing');
@@ -66,6 +66,20 @@ export function initializeDarkMode() {
             createCursorTrail(event.clientX, event.clientY);
         });
     });
+
+    // Para que funcione el menu hamburguesa del navbar
+
+    // Esto se ejecuta inmediatamente, porque ya estás dentro de un módulo
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    }
+
+
 
     // Función para crear el rastro del cursor con reducción de tamaño
     function createCursorTrail(x, y) {
