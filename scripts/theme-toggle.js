@@ -1,14 +1,9 @@
 // Aplicar el tema correcto antes de que la página se renderice
-(function applyThemeBeforeRender() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.documentElement.classList.add('dark-theme');
-    }
-})();
+
 
 // Función para inicializar el cambio de tema y efectos
 export function initializeDarkMode() {
-    console.log("🌓 Inicializando el modo oscuro...");
+    console.log(" Inicializando el modo oscuro...");
 
     const themeToggle = document.getElementById('theme-toggle');
     if (!themeToggle) {
@@ -18,11 +13,15 @@ export function initializeDarkMode() {
 
     const themeIcon = document.getElementById('theme-icon');
     const body = document.body;
+    const root = document.documentElement;
+
 
     // Verificar el tema guardado en localStorage y aplicarlo
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme === 'dark') {
         body.classList.add('dark-theme');
+        root.classList.add('dark-theme'); // ✅ esta sí se queda
+
         themeIcon.classList.remove('fa-lightbulb');
         themeIcon.classList.add('fa-solid', 'fa-lightbulb', 'glowing');
     }
@@ -57,13 +56,13 @@ export function initializeDarkMode() {
         document.body.appendChild(cursorLight);
     }
 
-    // 🎨 Mover el cursor suavemente y generar rastro con reducción progresiva
+    //  Mover el cursor suavemente y generar rastro con reducción progresiva
     document.addEventListener("mousemove", function (event) {
         requestAnimationFrame(() => {
             cursorLight.style.left = `${event.clientX}px`;
             cursorLight.style.top = `${event.clientY}px`;
 
-            // 🌠 Crear rastro del cursor con reducción de tamaño
+            //  Crear rastro del cursor con reducción de tamaño
             createCursorTrail(event.clientX, event.clientY);
         });
     });

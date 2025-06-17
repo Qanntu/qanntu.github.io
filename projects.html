@@ -3,6 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+        }
+    </script>
+
     <title>Projects</title>
     <link rel="stylesheet" href="./styles.css">
     <!-- fuente Dosis -->
@@ -20,8 +28,6 @@
 
 <!-- Three.js -->
 <canvas id="backgroundCanvas"></canvas>
-
-
 <div id="navbar"></div>
 
 <section class="projects">
@@ -118,7 +124,6 @@
         </div>
 
     </div>
-
 </section>
 
 
@@ -132,8 +137,6 @@
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
-
-
             initializeDarkMode();
             initializeThreeJS(); // Inicializar Three.js
         })
@@ -141,7 +144,7 @@
 </script>
 
 <!-- Script para el modo oscuro/sol -->
-<script src="../scripts/theme-toggle.js"></script>
+<!--<script src="../scripts/theme-toggle.js"></script>-->
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -165,16 +168,12 @@
                         .then(data => {
                             const tempDiv = document.createElement("div");
                             tempDiv.innerHTML = data;
-
-
                             const newContent = tempDiv.querySelector("#content");
-
                             if (newContent) {
                                 content.innerHTML = newContent.innerHTML;
                             } else {
                                 content.innerHTML = data;
                             }
-
                             content.style.opacity = 1;
                         })
                         .catch(error => console.error("Error cargando la vista:", error));
@@ -194,7 +193,7 @@
 
                 const paragraph = this.closest(".project-item").querySelector("p");
 
-            n
+
                 if (paragraph.style.display === "none" || paragraph.style.display === "") {
                     paragraph.style.display = "block"; // Mostrar el párrafo
                     setTimeout(() => paragraph.style.opacity = "1", 10);

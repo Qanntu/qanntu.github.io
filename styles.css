@@ -2,10 +2,19 @@
     transition: opacity 0.5s ease-in-out;
 }
 
+html.dark-theme {
+    background-color: #000; /* o el mismo degradado si quieres */
+}
+
+
 
 body {
-    opacity: 1;
+    background-color: #000;
+    color: #fff;
+    opacity: 0;
     transition: opacity 0.3s ease-in-out;
+
+
 }
 
 body.fade-out {
@@ -62,7 +71,7 @@ body:not(.dark-theme) {
 
 /* Evitar flash blanco al cambiar de tema */
 body.theme-transition {
-    transition: none;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
 body.loaded {
@@ -74,9 +83,10 @@ body.loaded {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -15; /* Para que el fondo esté detrás de todo */
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
 
 
@@ -165,7 +175,6 @@ nav {
 }
 
 
-/* Botón del tema */
 /* Botón del tema más grande */
 .theme-button {
     padding: 12px 20px; /* Aumenta el tamaño interno */
@@ -372,14 +381,12 @@ section.home {
 }
 
 .index-page .home {
-    height: auto !important;
-    padding-top: 70px; /* Ajusta a lo que necesites */
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    padding-top: 70px;
     margin-top: 0;
-    justify-content: flex-start;
+    justify-content: center;
+    background: transparent; /* Asegura que no interfiera con el canvas */
 }
-
-
-
 
 
 

@@ -8,7 +8,7 @@ export function initializeThreeJS() {
     const renderer = new THREE.WebGLRenderer({canvas, alpha: true});
 
     renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
+    renderer.setClearColor(0x000000, 0); // transparente
 
 
 
@@ -46,7 +46,6 @@ export function initializeThreeJS() {
         // Rotación sutil para un efecto realista
         starField.rotation.y += 0.0005;
         starField.rotation.x += 0.0003;
-
         renderer.render(scene, camera);
     }
 

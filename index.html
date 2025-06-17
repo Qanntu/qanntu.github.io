@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
 
-    <!--  fuente Dosis -->
-    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet">
+    <!-- Aplicar tema oscuro antes de cargar la página -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-theme');
+        }
+    </script>
 
-    <!--  CSS -->
-    <link rel="stylesheet" href="./styles.css">
+    <!-- Preload recursos críticos -->
+    <link rel="preload" href="./styles.css" as="style" />
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" as="script" />
 
-    <!--FontAwesome para los íconos -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Fuentes -->
+    <link href="https://fonts.cdnfonts.com/css/Dosis" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet" />
 
-    <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
-
-    <!-- Three.js desde CDN -->
+    <!-- Estilos y librerías -->
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-
-
 </head>
+
 <body class="index-page">
 
-
-<!--fondo de Three.js -->
+<!-- Fondo animado con Three.js -->
 <canvas id="backgroundCanvas"></canvas>
 
+<!-- Navbar cargado dinámicamente -->
 <div id="navbar"></div>
 
+<!-- Contenedor para cargar vistas dinámicas -->
+<div id="content"></div>
+
+<!-- Página principal de bienvenida (estática solo en index.html) -->
 <section class="home">
     <h1 class="liz-title">Liz</h1>
     <h2 class="liz-subtitle">Software Developer & UX/UI Designer</h2>
-
-    <p>One of the things I love most about the world of development is the collaboration between diverse minds, where each perspective brings something unique to create extraordinary ideas. This reinforces my belief that if we want to go far in each community, we must do it together.</p>
+    <p>
+        One of the things I love most about the world of development is the collaboration between diverse minds,
+        where each perspective brings something unique to create extraordinary ideas. This reinforces my belief
+        that if we want to go far in each community, we must do it together.
+    </p>
 </section>
 
-<!--  Div para la luz del cursor -->
+<!-- Efecto de cursor -->
 <div class="cursor-light"></div>
 
-<!-- Script para cargar el navbar -->
+<!-- Inicializar tema y fondo -->
 <script type="module">
     import { initializeDarkMode } from './scripts/theme-toggle.js';
-    import { initializeThreeJS } from './scripts/three-scene.js'; // el fondo de Three.js
-
+    import { initializeThreeJS } from './scripts/three-scene.js';
 
     fetch('/navbar.html')
         .then(response => response.text())
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
-            initializeDarkMode(); // Inicializar el modo oscuro
-            initializeThreeJS(); // Inicializar Three.js
-
+            initializeDarkMode();
+            initializeThreeJS();
         })
         .catch(error => console.error('Error loading navbar:', error));
-
-
-
 </script>
 
+<!-- Navegación dinámica SPA -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
         document.body.classList.add("loaded");
 
         const links = document.querySelectorAll(".nav-link");
@@ -72,7 +80,6 @@
                 event.preventDefault();
                 const url = this.getAttribute("href");
 
-                // Aplicar fade-out suavemente
                 content.style.transition = "opacity 0.5s ease-in-out";
                 content.style.opacity = 0.3;
 
@@ -83,13 +90,23 @@
                             const tempDiv = document.createElement("div");
                             tempDiv.innerHTML = data;
 
-
                             const newContent = tempDiv.querySelector("#content");
 
                             if (newContent) {
                                 content.innerHTML = newContent.innerHTML;
                             } else {
                                 content.innerHTML = data;
+                            }
+
+                            // Mantener tema
+                            const root = document.documentElement;
+                            const theme = localStorage.getItem('theme');
+                            if (theme === 'dark') {
+                                root.classList.add('dark-theme');
+                                document.body.classList.add('dark-theme');
+                            } else {
+                                root.classList.remove('dark-theme');
+                                document.body.classList.remove('dark-theme');
                             }
 
                             content.style.opacity = 1;
@@ -100,6 +117,5 @@
         });
     });
 </script>
-
 </body>
 </html>
