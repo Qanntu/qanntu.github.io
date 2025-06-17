@@ -12,7 +12,7 @@ export function initializeThreeJS() {
 
 
 
-    // ✨ Crear estrellas como partículas
+    //  Crear estrellas como partículas
     const starsGeometry = new THREE.BufferGeometry();
     const starsMaterial = new THREE.PointsMaterial({
         color: 0xffffff,
@@ -20,8 +20,8 @@ export function initializeThreeJS() {
         transparent: true,
         opacity: 0.8,
         depthWrite: false, // ⚠ Evita que los puntos se solapen de manera incorrecta
-        blending: THREE.AdditiveBlending, // 🔥 Hace que los puntos se mezclen con el fondo
-        alphaTest: 0.5 // 🔥 Difumina los bordes y evita efectos visuales duros
+        blending: THREE.AdditiveBlending, //  Hace que los puntos se mezclen con el fondo
+        alphaTest: 0.5 //  Difumina los bordes y evita efectos visuales duros
     });
 
     const starVertices = [];
@@ -36,10 +36,10 @@ export function initializeThreeJS() {
     const starField = new THREE.Points(starsGeometry, starsMaterial);
     scene.add(starField);
 
-    // 📍 Posicionar la cámara
+    //  Posicionar la cámara
     camera.position.z = 500;
 
-    // 🌠 Animación del fondo
+    //  Animación del fondo
     function animate() {
         requestAnimationFrame(animate);
 
@@ -50,12 +50,14 @@ export function initializeThreeJS() {
         renderer.render(scene, camera);
     }
 
-    // 📏 Ajustar el tamaño de la ventana
+    //  Ajustar el tamaño de la ventana
     window.addEventListener("resize", () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
     });
+
+
 
     animate();
 }

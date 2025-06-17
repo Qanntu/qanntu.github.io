@@ -49,7 +49,7 @@ export function initializeDarkMode() {
         }, 500);
     });
 
-    // 🔥 Agregar la luz del cursor dinámicamente si no existe
+    //  Agregar la luz del cursor dinámicamente si no existe
     let cursorLight = document.querySelector(".cursor-light");
     if (!cursorLight) {
         cursorLight = document.createElement("div");

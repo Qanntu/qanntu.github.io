@@ -30,8 +30,9 @@
 
 <div id="navbar"></div>
 
-<section>
-    <h1 class="liz-title">Liz Cruz</h1>
+<section class="home">
+    <h1 class="liz-title">Liz</h1>
+    <h2 class="liz-subtitle">Software Developer & UX/UI Designer</h2>
 
     <p>One of the things I love most about the world of development is the collaboration between diverse minds, where each perspective brings something unique to create extraordinary ideas. This reinforces my belief that if we want to go far in each community, we must do it together.</p>
 </section>
@@ -73,7 +74,7 @@
 
                 // Aplicar fade-out suavemente
                 content.style.transition = "opacity 0.5s ease-in-out";
-                content.style.opacity = 0.3; /r
+                content.style.opacity = 0.3;
 
                 setTimeout(() => {
                     fetch(url)
@@ -93,7 +94,7 @@
 
                             content.style.opacity = 1;
                         })
-                        .catch(error => console.error("❌ Error cargando la vista:", error));
+                        .catch(error => console.error("Error cargando la vista:", error));
                 }, 300);
             });
         });
